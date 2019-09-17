@@ -1,14 +1,29 @@
 import {Recipe} from './recipe.model';
 import {EventEmitter} from '@angular/core';
+import {Ingredient} from '../shared/ingredient.model';
 
 export class RecipeService {
   recipeSelected = new EventEmitter<Recipe>();
 
   private recipes: Recipe[] = [
-    new Recipe('Test Recipe 1', 'A dummy kind of description', 'https://www.bbcgoodfood.com/sites/default/files/' +
-      'categories/categories-image/2013/05/frying-pan-pizza-easy-recipe-collection.jpg'),
-    new Recipe('Test Recipe 2', 'A dummy kind of description', 'https://www.bbcgoodfood.com/sites/default/files/' +
-      'categories/categories-image/2013/05/frying-pan-pizza-easy-recipe-collection.jpg')
+    new Recipe(
+      'Chole Bhature',
+      'A super-tasty plate of Chole Bhature!',
+      'https://indianfoodclub.in/wp-content/uploads/2019/07/Untitled-3-4-960x546.jpg',
+      [
+        new Ingredient('Bhature', 2),
+        new Ingredient('Chole', 50)
+      ]),
+    new Recipe(
+      'Indian Thali',
+      'A super-tasty Indian Thali.',
+      'https://tce-live2.s3.amazonaws.com/media/media/42bfb23f-38e3-4198-9336-5aa22b75093e.jpg',
+      [
+        new Ingredient('Chicken', 1),
+        new Ingredient('Naan', 2),
+        new Ingredient('Paneer', 1),
+        new Ingredient('Samosa', 5)
+      ])
   ];
 
   getRecipes() {
