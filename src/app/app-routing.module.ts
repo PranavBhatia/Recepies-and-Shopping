@@ -2,12 +2,18 @@ import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 import {RecipeBookComponent} from './recipes/recipes.component';
 import {ShoppingListComponent} from './shopping-list/shopping-list.component';
+import {RecipeStartComponent} from './recipes/recipe-start/recipe-start.component';
+import {RecipeDetailComponent} from './recipes/recipe-detail/recipe-detail.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/recipes', pathMatch: 'full'},
-  {path: 'recipes', component: RecipeBookComponent},
+  {
+    path: 'recipes', component: RecipeBookComponent, children: [
+      {path: '', component: RecipeStartComponent},
+      {path: ':id', component: RecipeDetailComponent}
+    ]
+  },
   {path: 'shopping-list', component: ShoppingListComponent}
-  // {path: '**', redirectTo: ''} // Should always be the last route
 ];
 
 @NgModule({
