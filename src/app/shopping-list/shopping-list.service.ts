@@ -14,6 +14,10 @@ export class ShoppingListService {
     return this.ingredients.slice(); // so that we dont get the actual array object, just get a copy
   }
 
+  getIngredient(index: number) {
+    return this.ingredients[index];
+  }
+
   addIngredient(ingredient: Ingredient) {
     this.ingredients.push(ingredient);
     this.ingredientsChanged.next(this.ingredients.slice());
