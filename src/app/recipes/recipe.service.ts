@@ -9,7 +9,7 @@ export class RecipeService {
     new Recipe(
       'Chole Bhature',
       'A super-tasty plate of Chole Bhature!',
-      'https://indianfoodclub.in/wp-content/uploads/2019/07/Untitled-3-4-960x546.jpg',
+      'https://indianambrosia.com/wp-content/uploads/2019/06/chole-bhature-2201.jpg',
       [
         new Ingredient('Bhature', 2),
         new Ingredient('Chole', 50)

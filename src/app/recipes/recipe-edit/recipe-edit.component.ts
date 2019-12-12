@@ -19,6 +19,10 @@ export class RecipeEditComponent implements OnInit {
   ) {
   }
 
+  get controls() { // a getter!
+    return (this.recipeForm.get('ingredients') as FormArray).controls;
+  }
+
   ngOnInit() {
     this.activatedRoute.params.subscribe(
       (params: Params) => {
@@ -29,12 +33,17 @@ export class RecipeEditComponent implements OnInit {
     );
   }
 
-  get controls() { // a getter!
-    return (this.recipeForm.get('ingredients') as FormArray).controls;
-  }
-
   onSubmit() {
     console.log(this.recipeForm);
+  }
+
+  onAddIngredient() {
+    (this.recipeForm.get('ingredients') as FormArray).push(
+      new FormGroup({
+        name: new FormControl(),
+        amount: new FormControl()
+      })
+    );
   }
 
   private initForm() {
@@ -67,5 +76,4 @@ export class RecipeEditComponent implements OnInit {
       ingredients: recipeIngredients
     });
   }
-
 }
